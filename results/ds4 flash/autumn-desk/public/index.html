@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#e8dcc6" />
+    <title>Осенний рабочий стол</title>
+    <link rel="stylesheet" href="./styles/app.css" />
+  </head>
+  <body>
+    <canvas id="scene-canvas" aria-label="Интерактивная 3D-сцена: осенний рабочий стол"></canvas>
+
+    <!-- Laptop lock-screen input. Only the character count is mirrored into
+         the 3D texture; nothing is stored or transmitted. -->
+    <div id="lock-overlay" hidden aria-hidden="true">
+      <div class="lock-card">
+        <label class="visually-hidden" for="lock-input">Пароль</label>
+        <input
+          id="lock-input"
+          type="password"
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+          placeholder="Пароль"
+          inputmode="text"
+        />
+        <button id="lock-submit" type="button" aria-label="Войти">→</button>
+        <p id="lock-hint" class="lock-hint" role="status"></p>
+      </div>
+    </div>
+
+    <button id="home-chip" type="button" class="home-chip is-home" aria-label="Вернуться к общему виду">
+      <span class="home-dot" aria-hidden="true"></span>
+      <span class="home-text">Общий вид</span>
+      <span id="active-label" class="active-label" hidden></span>
+    </button>
+
+    <div id="webgl-fallback" class="webgl-fallback" hidden>
+      <div class="fallback-card">
+        <h1>WebGL недоступен</h1>
+        <p>Сцена не может быть показана на этом устройстве или в этом браузере.</p>
+        <p class="fallback-reason" data-reason></p>
+        <p class="fallback-hint">
+          Попробуйте включить аппаратное ускорение или открыть страницу в современном браузере.
+        </p>
+      </div>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

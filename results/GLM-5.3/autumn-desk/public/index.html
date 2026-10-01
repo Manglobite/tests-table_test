@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <title>Осенний рабочий стол</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <canvas id="scene" aria-label="Осенний рабочий стол: интерактивная 3D-сцена"></canvas>
+  <div id="view-caption" class="view-caption" hidden></div>
+  <div id="laptop-overlay" class="laptop-overlay" hidden>
+    <form id="laptop-password-form" action="" onsubmit="return false">
+      <input id="laptop-password" type="password" autocomplete="off" autocapitalize="off"
+             spellcheck="false" enterkeyhint="go" aria-label="Демонстрационный пароль">
+    </form>
+  </div>
+  <div id="fatal" class="fatal" hidden>
+    <div class="fatal-card">
+      <h1>Не удалось запустить 3D-сцену</h1>
+      <p id="fatal-text">В браузере недоступен WebGL.</p>
+      <p class="fatal-note">Попробуйте другой браузер или включите аппаратное ускорение графики.</p>
+    </div>
+  </div>
+  <script type="module" src="js/main.js?v=3"></script>
+</body>
+</html>

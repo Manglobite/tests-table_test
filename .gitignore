@@ -1,0 +1,17 @@
+node_modules/
+*.log
+*.tgz
+.env
+.DS_Store
+Thumbs.db
+
+# Локальные копии библиотеки задания: дубли и источник не публикуются.
+# Вендорные копии внутри results/*/autumn-desk/public/ остаются в репозитории.
+results/*/tree_js/
+test/tree_js/
+
+# Runtime-артефакты решений (пересоздаются при запуске).
+results/*/autumn-desk/.runtime/
+results/*/autumn-desk/run/
+results/*/autumn-desk/var/
+*.pid

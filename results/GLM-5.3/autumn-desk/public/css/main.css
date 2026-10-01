@@ -1,0 +1,105 @@
+:root {
+  --caption-bg: rgba(24, 16, 10, 0.55);
+  --caption-fg: #f5e7d0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #1a120c;
+  color: #f5e7d0;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  overscroll-behavior: none;
+}
+
+#scene {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: manipulation;
+}
+
+/* Подпись текущего ракурса — минимальная, не меню и не подсказка по управлению */
+.view-caption {
+  position: fixed;
+  left: max(12px, env(safe-area-inset-left));
+  bottom: max(12px, env(safe-area-inset-bottom));
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--caption-bg);
+  color: var(--caption-fg);
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  backdrop-filter: blur(4px);
+  user-select: none;
+}
+.view-caption.visible { opacity: 0.92; }
+
+/* Демонстрационное поле пароля на экране ноутбука (позиционируется над 3D-экраном) */
+.laptop-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 5;
+  transform-origin: center;
+}
+.laptop-overlay[hidden] { display: none; }
+.laptop-overlay form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.laptop-overlay input {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  background: rgba(20, 26, 34, 0.55);
+  color: #fff;
+  font: 500 15px/1 "Segoe UI", system-ui, sans-serif;
+  text-align: center;
+  letter-spacing: 0.12em;
+  outline: none;
+  pointer-events: auto;
+  caret-color: #ffd28a;
+  -webkit-text-security: disc;
+}
+.laptop-overlay input::placeholder { color: transparent; }
+
+.fatal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #2a1c10 0%, #140d08 75%);
+  z-index: 10;
+  padding: 24px;
+}
+.fatal[hidden] { display: none; }
+.fatal-card {
+  max-width: 460px;
+  padding: 28px 30px;
+  border-radius: 16px;
+  background: rgba(245, 231, 208, 0.06);
+  border: 1px solid rgba(245, 231, 208, 0.16);
+  text-align: center;
+}
+.fatal-card h1 { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+.fatal-card p { font-size: 14px; opacity: 0.85; margin-bottom: 8px; }
+.fatal-card .fatal-note { opacity: 0.6; font-size: 13px; }

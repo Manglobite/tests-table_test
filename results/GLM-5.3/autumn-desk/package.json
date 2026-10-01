@@ -1,0 +1,10 @@
+{
+  "name": "autumn-desk",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Осенний рабочий стол — интерактивная 3D-сцена на локальном Three.js, без внешних зависимостей",
+  "engines": {
+    "node": ">=18"
+  }
+}
